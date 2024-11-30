@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/solicitacao.css" />
+    <title>Formulário de Solicitação</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="logo-container">
+        <img src="../image/logo.png" alt="Logo" class="logo" />
+      </div>
+      <h1>Solicitação de Agenda</h1>
+      <form 
+        method="POST"
+        id="myForm"
+      >
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="telefone">Telefone celular:</label>
+        <input
+          type="tel"
+          id="telefone"
+          name="telefone"
+          required
+          pattern="[0-9]{11}"
+          placeholder="Ex: 27999999999"
+        />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="tipoAgenda">Tipo de agenda:</label>
+        <select id="tipoAgenda" name="tipoAgenda" required>
+          <option value="">Selecione...</option>
+          <option value="Visita presencial aos laboratórios">
+            Visita presencial aos laboratórios
+          </option>
+          <option value="Vídeo chamada com o instrutor">
+            Vídeo chamada com o instrutor
+          </option>
+          <option value="Quero minha vaga">Quero minha vaga</option>
+        </select>
+
+        <label for="dataHora">Melhor dia e horário para contato:</label>
+        <input type="datetime-local" id="dataHora" name="dataHora" required />
+
+        <label for="expectativas">Conte um pouco das suas expectativas:</label>
+        <textarea id="expectativas" name="expectativas"></textarea>
+
+        <label for="">Unidade</label>
+        <select id="citySelect" name="city">
+          <option value="vitoria">Vitória</option>
+          <option value="vila_velha">Vila Velha</option>
+          <option value="serra">Serra</option>
+        </select>
+      
+
+        <label for="curso">Selecione o curso:</label>
+        <select id="curso" name="curso" required>
+          <option value="">Selecione...</option>
+          <option value="Técnico em Mecânica">Técnico em Mecânica</option>
+          <option value="Técnico em Cibersegurança">
+            Técnico em Cibersegurança
+          </option>
+          <option value="Técnico em Manutenção Automotiva">
+            Técnico em Manutenção Automotiva
+          </option>
+          <option value="Técnico em Desenvolvimento de Sistemas">
+            Técnico em Desenvolvimento de Sistemas
+          </option>
+        </select>
+
+        <div class="buttons">
+          <button type="submit">Enviar solicitação</button>
+          <button type="button" id="cancelar">Cancelar solicitação</button>
+        </div>
+      </form>
+    </div>
+    <script src="../js/solicitacao.js"></script>
+  </body>
+</html>

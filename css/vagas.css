@@ -1,0 +1,79 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000000;
+    color: #333;
+    padding: 20px;
+}
+
+ header {
+    text-align: center;
+    padding: 20px;
+    background-color: #0044cc;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Container de Vagas */
+.job-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cards de Vagas */
+.job-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagens das Vagas */
+.job-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Títulos das Vagas */
+.job-card h2 {
+    font-size: 1.2em;
+    color: #0044cc;
+    margin: 15px 0;
+}
+
+/* Descrições das Vagas */
+.job-card p {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #0044cc;
+    color: white;
+    border-radius: 10px;
+}

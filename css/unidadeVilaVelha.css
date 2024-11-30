@@ -1,0 +1,369 @@
+body {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+img {
+  filter: contrast(175%) brightness(30%);
+}
+
+header {
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+.logo {
+  max-width: 150px;
+  height: auto;
+  display: block;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#lista-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.item-menu a {
+  color: #001aff;
+  margin-right: 5px;
+  padding: 5px 10px;
+  transition: 0.2s;
+  font-size: 1.300rem;
+  font-weight: bold;
+}
+
+.item-menu a:hover {
+  background: #1e00fdff;
+  color: #eee;
+  border-radius: 2px;
+}
+
+@media (width <= 768px) {
+  #lista-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    background-color: #ffffff;
+    z-index: 1000;
+  }
+
+  .item-menu {
+    width: 100%;
+    text-align: center;
+  }
+
+  #lista-menu.active {
+    display: flex;
+  }
+
+  #hamburger {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  #hamburger div {
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: 0.4s;
+  }
+
+  #hamburger.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  #hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/* slider section  */
+.slider {
+  height: 100vh;
+  margin-top: -50px;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider .list .item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+.slider .list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slider .list .item .content {
+  position: absolute;
+  top: 10%; /* Alinhamento vertical */
+  right: 5%; /* Posiciona o elemento no lado direito */
+  width: 1140px;
+  max-width: 80%;
+  transform: none; /* Remove a centralização horizontal */
+  padding-left: 15%; /* Ajusta o preenchimento para o lado esquerdo, se necessário */
+  box-sizing: border-box;
+  color: #1e00fdff;
+  text-shadow: 0 5px 10px #0004;
+}
+
+.slider .list .item .content .description {
+  color: #bfbfbf; /* Define a cor apenas para a descrição */
+  font-size: 20px;
+}
+
+.slider .list .item .content .title,
+.slider .list .item .content .type {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1.3em;
+}
+
+.slider .list .item .type {
+  color: #eee;
+}
+.slider .list .item .button {
+  display: grid;
+  grid-template-columns: repeat(4, 130px);
+  grid-template-rows: 40px;
+  gap: 5px;
+  margin-top: 20px;
+}
+.slider .list .item .button a {
+  border: none;
+  background-color: #eee;
+  font-family: Poppins;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider .list .item .button a:hover {
+  letter-spacing: 3px;
+}
+
+/* Animation Part */
+.slider .list .item:nth-child(1) {
+  z-index: 1;
+}
+
+#info {
+  font-size: 20px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  line-height: 2;
+}
+
+/* nextPrevArrows Section  */
+.nextPrevArrows {
+  position: absolute;
+  top: 80%;
+  right: 52%;
+  z-index: 100;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.nextPrevArrows button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #14ff72cb;
+  border: none;
+  color: #fff;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 4em;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.nextPrevArrows button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* animation text in first item */
+.slider .list .item:nth-child(1) .content .title,
+.slider .list .item:nth-child(1) .content .type,
+.slider .list .item:nth-child(1) .content .description,
+.slider .list .item:nth-child(1) .content .buttons {
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 1s linear 1 forwards;
+}
+@keyframes showContent {
+  to {
+    transform: translateY(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.slider .list .item:nth-child(1) .content .title {
+  animation-delay: 0.4s !important;
+}
+.slider .list .item:nth-child(1) .content .type {
+  animation-delay: 0.6s !important;
+}
+.slider .list .item:nth-child(1) .content .description {
+  animation-delay: 0.8s !important;
+}
+.slider .list .item:nth-child(1) .content .buttons {
+  animation-delay: 1s !important;
+}
+
+/* Animation for next button click */
+.slider.next .list .item:nth-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  border-radius: 30px;
+  animation: showImage 0.5s linear 1 forwards;
+}
+
+@keyframes showImage {
+  to {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.slider.next .thumbnail .item:nth-last-child(1) {
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.slider.prev .list .item img {
+  z-index: 100;
+}
+
+@keyframes showThumbnail {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+.slider.next .thumbnail {
+  animation: effectNext 0.5s linear 1 forwards;
+}
+
+@keyframes effectNext {
+  from {
+    transform: translateX(150px);
+  }
+}
+
+/* Animation for prev button click */
+.slider.prev .list .item:nth-child(2) {
+  z-index: 2;
+}
+
+.slider.prev .list .item:nth-child(2) img {
+  animation: outFrame 0.5s linear 1 forwards;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+@keyframes outFrame {
+  to {
+    width: 150px;
+    height: 220px;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 20px;
+  }
+}
+
+.slider.prev .thumbnail .item:nth-child(1) {
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.slider.next .nextPrevArrows button,
+.slider.prev .nextPrevArrows button {
+  pointer-events: none;
+}
+
+.slider.prev .list .item:nth-child(2) .content .title,
+.slider.prev .list .item:nth-child(2) .content .type,
+.slider.prev .list .item:nth-child(2) .content .description,
+.slider.prev .list .item:nth-child(2) .content .buttons {
+  animation: contentOut 1.5s linear 1 forwards !important;
+}
+
+@keyframes contentOut {
+  to {
+    transform: translateY(-150px);
+    filter: blur(20px);
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 678px) {
+  .slider .list .item .content {
+    padding-right: 0;
+  }
+  .slider .list .item .content .title {
+    font-size: 50px;
+  }
+}
+
+/* Thumbnail Section  */
+.thumbnail {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+}
+
+.thumbnail .item {
+  width: 150px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.thumbnail .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
